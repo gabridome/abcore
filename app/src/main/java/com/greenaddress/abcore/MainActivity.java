@@ -74,13 +74,16 @@ public class MainActivity extends AppCompatActivity {
         final TextView status = (TextView) activity.findViewById(R.id.textView);
         final Button button = (Button) activity.findViewById(R.id.button);
         button.setVisibility(View.GONE);
-        status.setText("Bitcoin Core is running, select STOP CORE to stop it.");
+        status.setText("Bitcoin Core is running, please swtich Core OFF to stop it.");
         final Switch coreSwitch = (Switch) activity.findViewById(R.id.switchCore);
+
         coreSwitch.setVisibility(View.VISIBLE);
         coreSwitch.setText("Switch Core off");
         if (!coreSwitch.isChecked()) {
             coreSwitch.setChecked(true);
         }
+
+        setSwitch(activity);
     }
 
 
@@ -92,28 +95,31 @@ public class MainActivity extends AppCompatActivity {
         tw.setText("Bitcoin core fetched and configured");
         final TextView status = (TextView) activity.findViewById(R.id.textView);
         final Button button = (Button) activity.findViewById(R.id.button);
-        status.setText("Bitcoin Core is not running, please select START CORE to start it");
+        status.setText("Bitcoin Core is not running, please switch Core ON to start it");
         button.setVisibility(View.GONE);
-        final Switch coreSwitch = (Switch) activity.findViewById(R.id.switchCore);
+        setSwitch(activity);
+    }
+
+    private static void setSwitch(final Activity a) {
+        final Switch coreSwitch = (Switch) a.findViewById(R.id.switchCore);
         coreSwitch.setVisibility(View.VISIBLE);
         coreSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(final CompoundButton buttonView, final boolean isChecked) {
                 if (isChecked) {
-                    final TextView tw = (TextView) activity.findViewById(R.id.textViewDetails);
+                    final TextView tw = (TextView) a.findViewById(R.id.textViewDetails);
                     tw.setVisibility(View.GONE);
-                    activity.startService(new Intent(activity, ABCoreService.class));
-                    postStart(activity);
+                    a.startService(new Intent(a, ABCoreService.class));
+                    postStart(a);
                     coreSwitch.setText("Switch Core off");
                 } else {
-                    final Intent i = new Intent(activity, RPCIntentService.class);
+                    final Intent i = new Intent(a, RPCIntentService.class);
                     i.putExtra("stop", "yep");
-                    activity.startService(i);
-                    postConfigure(activity);
+                    a.startService(i);
+                    postConfigure(a);
                     coreSwitch.setText("Switch Core on");
                 }
             }
         });
-
     }
 
     public class DownloadInstallCoreResponseReceiver extends BroadcastReceiver {
@@ -149,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
                     button.setEnabled(false);
                     final TextView status = (TextView) findViewById(R.id.textView);
 
-                    status.setText("Please wait .. fetching, unpacking and configuring bitcoin core ..");
+                    status.setText("Please wait. Fetching, unpacking and configuring bitcoin core...");
 
                     break;
                 }
@@ -182,7 +188,7 @@ public class MainActivity extends AppCompatActivity {
 
                     if (requiresDownload) {
                         final float internal = Utils.megabytesAvailable(Utils.getDir(MainActivity.this));
-                        final float external = Utils.megabytesAvailable(Utils.getLargetFilesDir(MainActivity.this));
+                        final float external = Utils.megabytesAvailable(Utils.getLargestFilesDir(MainActivity.this));
 
                         if (internal > 70) {
                             status.setText("Please select SETUP BITCOIN CORE to download and configure Core");
@@ -192,7 +198,7 @@ public class MainActivity extends AppCompatActivity {
                                     button.setEnabled(false);
                                     pb.setVisibility(View.VISIBLE);
                                     pb.setProgress(0);
-                                    status.setText("Please wait .. fetching, unpacking and configuring bitcoin core ..");
+                                    status.setText("Please wait. Fetching, unpacking and configuring bitcoin core...");
 
                                     startService(new Intent(MainActivity.this, DownloadInstallCoreIntentService.class));
                                 }
