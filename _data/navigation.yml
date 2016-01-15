@@ -38,10 +38,10 @@ it:
     url:   "/it/blog/"
   releases:
     title: "rilasci"
-    url:   "/it/rilasci/"
+    url:   "/it/releases/"
   contribute:
     title: "contributi"
-    url:   "/it/contributi/"
+    url:   "/it/contribute/"
 de:
   home:
     title: "Bitcoin Core"

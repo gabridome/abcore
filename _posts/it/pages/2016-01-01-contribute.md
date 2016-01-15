@@ -6,6 +6,7 @@ permalink: /it/contribute
 layout: page
 share: false
 version: 1
+translated: false
 ---
 
 You're welcome to contribute to the project! There are several aspects you can help on:
