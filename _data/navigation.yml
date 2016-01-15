@@ -26,6 +26,22 @@ en:
   contribute:
     title: "contribute"
     url:   "/en/contribute/"
+it:
+  home:
+    title: "Android Bitcoin Core"
+    url:   "/"
+  about:
+    title: "Chi Siamo"
+    url:   "/it/about/"
+  blog:
+    title: "blog"
+    url:   "/it/blog/"
+  releases:
+    title: "rilasci"
+    url:   "/it/rilasci/"
+  contribute:
+    title: "contributi"
+    url:   "/it/contributi/"
 de:
   home:
     title: "Bitcoin Core"
