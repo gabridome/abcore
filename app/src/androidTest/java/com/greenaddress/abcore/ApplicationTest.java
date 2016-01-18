@@ -26,7 +26,16 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
 
             final String filePath = Utils.getFilePathFromUrl(getContext(), url);
 
+<<<<<<< HEAD
             Utils.downloadFile(url, filePath);
+=======
+            Utils.downloadFile(url, filePath, new Utils.OnDownloadSpeedChange() {
+                @Override
+                public void bytesPerSecondUpdate(final int bytes) {
+                    // do nothing
+                }
+            });
+>>>>>>> greenaddress/master
 
             for (final String a: pkg.archHash) {
                 if (a.startsWith(arch)) {
@@ -34,6 +43,10 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
                     break;
                 }
             }
+<<<<<<< HEAD
+=======
+            //noinspection ResultOfMethodCallIgnored
+>>>>>>> greenaddress/master
             new File(filePath).delete();
         }
     }
