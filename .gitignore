@@ -1,2 +1,35 @@
+<<<<<<< HEAD
 _site/
 .sass-cache
+=======
+*.iml
+.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/build
+/captures
+*.swp
+*.apk
+
+/app/build
+
+.idea/.name
+
+.idea/compiler.xml
+
+.idea/copyright/profiles_settings.xml
+
+.idea/encodings.xml
+
+.idea/gradle.xml
+
+.idea/misc.xml
+
+.idea/modules.xml
+
+.idea/runConfigurations.xml
+
+.idea/vcs.xml
+>>>>>>> greenaddress/master

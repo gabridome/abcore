@@ -2,7 +2,12 @@
 
 This repository is the source code of the ABCore project website built with Jekyll.
 
+<<<<<<< HEAD
 ## Directory structure
+=======
+Warning: This app is still in a very Proof of Concept/Alpha stage.
+If you want to try it get it from the Play Store (opt-in https://play.google.com/apps/testing/com.greenaddress.abcore) or directly from GitHub https://github.com/greenaddress/abcore/releases/tag/v0.23alphaPoC
+>>>>>>> greenaddress/master
 
   - `_posts/<lang>/posts` for blog articles.
   - `_posts/<lang>/pages` for static pages.
@@ -56,7 +61,19 @@ To test the site:
 
     bundle exec jekyll build && bundle exec htmlproof ./_site
 
+<<<<<<< HEAD
 ## Contributing
+=======
+Icon & Web Design
+
+Ottavio Fontolan otta88.box (at) gmail (dot) com
+
+Testing & UX
+
+Gabriele Domenichini twitter.com/gabridome
+
+Special thanks to the Bitcoin Dev team, the Debian and Arch Linux teams and to github.com/Polve for JavaBitcoindRpcClient.
+>>>>>>> greenaddress/master
 
 Contributions welcome. Please see [CONTRIBUTING.md](/CONTRIBUTING.md) for details.
 
